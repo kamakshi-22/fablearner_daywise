@@ -35,6 +35,15 @@ class AppTheme {
         ),
       ),
     ),
+
+    /* List Tile */
+    textTheme: const TextTheme(
+      labelLarge: TextStyle(
+        fontFamily: 'DingDong',
+        color: AppColors.blue,
+        fontSize: 30,
+      ),
+    ),
   );
 
   static final darkTheme = ThemeData();

@@ -1,7 +1,6 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_boilerplate/design/screens/tabs/about/about.dart';
-import 'package:flutter_boilerplate/design/screens/tabs/profile/profile.dart';
+import 'package:flutter_boilerplate/core/models/course_model.dart';
 import 'package:flutter_boilerplate/design/utils/routes/route_constants.dart';
 import 'package:go_router/go_router.dart';
 
@@ -13,37 +12,25 @@ class AppRouter {
       debugLogDiagnostics: true,
       routes: [
         GoRoute(
-          name: AppRouteConstants.navRouteName,
-          path: '/',
-          pageBuilder: (context, state) {
-            return MaterialPage(child: NavScreen());
-          },
-        ),
-        GoRoute(
-          name: AppRouteConstants.homeRouteName,
-          path: '/home',
-          pageBuilder: (context, state) {
-            return MaterialPage(child: HomeScreen());
-          },
-        ),
-        GoRoute(
-            name: AppRouteConstants.profileRouteName,
-            path: '/profile',
+            name: AppRouteConstants.homeRouteName,
+            path: '/',
             pageBuilder: (context, state) {
-              return MaterialPage(child: ProfileScreen());
-            }),
-        GoRoute(
-            name: AppRouteConstants.aboutRouteName,
-            path: '/about',
-            pageBuilder: (context, state) {
-              return MaterialPage(child: AboutScreen());
-            }),
-        GoRoute(
-            name: AppRouteConstants.contactRouteName,
-            path: '/contact',
-            pageBuilder: (context, state) {
-              return MaterialPage(child: ContactScreen());
-            }),
+              return MaterialPage(child: HomeScreen());
+            },
+            routes: [
+              GoRoute(
+                name: AppRouteConstants.monthsRouteName,
+                path: 'months',
+                pageBuilder: (context, state) {
+                  final queryParameters = state.queryParameters;
+                final itemsList = queryParameters['itemsList'] as List<Item>;
+                return MaterialPage(
+                  key: state.pageKey,
+                  child: MonthsScreen(items: itemsList),
+                );
+                },
+              )
+            ]),
       ],
       errorPageBuilder: (context, state) {
         return MaterialPage(child: ErrorScreen());

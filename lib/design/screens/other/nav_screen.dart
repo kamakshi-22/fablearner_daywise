@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+/* import 'package:flutter/material.dart';
 import 'package:flutter_boilerplate/design/screens/screens.dart';
 import 'package:flutter_boilerplate/design/screens/tabs/about/about.dart';
 import 'package:flutter_boilerplate/design/screens/tabs/profile/profile.dart';
@@ -61,3 +61,4 @@ class _NavScreenState extends State<NavScreen> {
                   ));
   }
 }
+ */

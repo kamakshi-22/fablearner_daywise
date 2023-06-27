@@ -1,12 +1,18 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_boilerplate/design/utils/routes/route_config.dart';
 
 import 'design/screens/screens.dart';
-import 'design/utils/design/app_theme.dart';
+import 'design/utils/routes/design/app_theme.dart';
 
 void main() {
   runApp(const MyApp());
 }
+
+
+
+
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -16,9 +22,8 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp.router(
       debugShowCheckedModeBanner: false,
-      title: 'Flutter Boilerplate',
+      title: 'Fablearner',
       theme: AppTheme.lightTheme,
-
       // authentication is not implemented yet so we are passing true to returnRouter to the routerConfig property
       routerConfig: AppRouter.returnRouter(true),
     );
