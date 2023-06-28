@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_boilerplate/design/utils/routes/route_config.dart';
 
 import 'design/screens/screens.dart';
-import 'design/utils/routes/design/app_theme.dart';
+import 'design/utils/design/app_theme.dart';
 
 void main() {
   runApp(const MyApp());

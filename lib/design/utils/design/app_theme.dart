@@ -31,17 +31,13 @@ class AppTheme {
         foregroundColor: AppColors.white,
         elevation: 0,
         shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(10.0),
+          borderRadius: BorderRadius.circular(20.0),
         ),
-      ),
-    ),
-
-    /* List Tile */
-    textTheme: const TextTheme(
-      labelLarge: TextStyle(
-        fontFamily: 'DingDong',
-        color: AppColors.blue,
-        fontSize: 30,
+        textStyle: const TextStyle(
+          fontSize: 24,
+          fontWeight: FontWeight.bold,
+        ),
+        padding: const EdgeInsets.all(20.0),
       ),
     ),
   );

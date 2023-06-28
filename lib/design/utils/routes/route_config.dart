@@ -1,6 +1,7 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_boilerplate/core/models/course_model.dart';
+import 'package:flutter_boilerplate/design/screens/login_screen.dart';
 import 'package:flutter_boilerplate/design/utils/routes/route_constants.dart';
 import 'package:go_router/go_router.dart';
 
@@ -12,25 +13,34 @@ class AppRouter {
       debugLogDiagnostics: true,
       routes: [
         GoRoute(
+          name: AppRouteConstants.loginRouteName,
+          path: '/',
+          pageBuilder: (context, state) {
+            return const MaterialPage(child: LoginScreen());
+          },
+        ),
+        GoRoute(
             name: AppRouteConstants.homeRouteName,
-            path: '/',
+            path: '/home',
             pageBuilder: (context, state) {
-              return MaterialPage(child: HomeScreen());
+              return MaterialPage(
+                  child: HomeScreen(
+                token: state.queryParameters['token']!,
+              ));
             },
             routes: [
               GoRoute(
                 name: AppRouteConstants.monthsRouteName,
                 path: 'months',
                 pageBuilder: (context, state) {
-                  final queryParameters = state.queryParameters;
-                final itemsList = queryParameters['itemsList'] as List<Item>;
-                return MaterialPage(
-                  key: state.pageKey,
-                  child: MonthsScreen(items: itemsList),
-                );
+                  return MaterialPage(
+                    child: MonthsScreen(
+                      items: state.extra as List<Item>,
+                    ),
+                  );
                 },
               )
-            ]),
+            ])
       ],
       errorPageBuilder: (context, state) {
         return MaterialPage(child: ErrorScreen());

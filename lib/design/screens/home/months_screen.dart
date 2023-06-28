@@ -11,8 +11,6 @@ class MonthsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    //final Map<String, dynamic> args = GoRouter.of(context).;
-    //final List<Item> items = args['items'] as List<Item>;
 
     return Scaffold(
       appBar: AppBar(
@@ -22,31 +20,31 @@ class MonthsScreen extends StatelessWidget {
       ),
       body: Column(children: [
         LogoHeader(),
-        // Expanded(
-        //   child: ListView.builder(
-        //     itemCount: items.length,
-        //     itemBuilder: (context, index) {
-        //       final item = items[index];
-        //       return Padding(
-        //         padding: EdgeInsets.symmetric(vertical: 10, horizontal: 30),
-        //         child: ListTile(
-        //           shape: RoundedRectangleBorder(
-        //             borderRadius: BorderRadius.all(Radius.circular(10)),
-        //           ),
-        //           title: Text(
-        //             item.title,
-        //             style: TextStyle(
-        //               fontFamily: 'DingDong',
-        //               color: AppColors.blue,
-        //               fontSize: 30,
-        //             ),
-        //           ),
-        //           tileColor: AppColors.yellow,
-        //         ),
-        //       );
-        //     },
-        //   ),
-        // ),
+        Expanded(
+          child: ListView.builder(
+            itemCount: items.length,
+            itemBuilder: (context, index) {
+              final item = items[index];
+              return Padding(
+                padding: EdgeInsets.symmetric(vertical: 10, horizontal: 30),
+                child: ListTile(
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.all(Radius.circular(10)),
+                  ),
+                  title: Text(
+                    item.title,
+                    style: TextStyle(
+                      fontFamily: 'DingDong',
+                      color: AppColors.blue,
+                      fontSize: 30,
+                    ),
+                  ),
+                  tileColor: AppColors.yellow,
+                ),
+              );
+            },
+          ),
+        ),
       ]),
     );
   }
